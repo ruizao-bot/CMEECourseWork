@@ -1,1 +1,15 @@
-week1/sandbox/TestWild/File1.csv
+*~ __pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+*.log
+*.sqlite3
+*.user
+*.suo
+*.exe
+*.obj
+bin/
+obj/
+
+*.tmp
