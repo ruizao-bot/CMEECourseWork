@@ -1,26 +1,21 @@
-cd ~/Downloads/TheMulQuaBio-master/content/data/fasta
+# Find fasta
+cd ../data/fasta
 
 #1 count how many lines there are in each file
-cd ~/Downloads/TheMulQuaBio-master/content/data/fasta
-wc -l E.coli.fasta
+cd ../data/fasta$ wc -l *.fasta
 
 #2 Print everything starting from the second line for the E. coli genome
-cd ~/Downloads/TheMulQuaBio-master/content/data/fasta
-sed -n '2,$p' E.coli.fasta
+cd ../data/fasta/ E.
+tail -n +2 E.coli.fasta
 
 #3 Count the sequence length of this genome
-cd ~/Downloads/TheMulQuaBio-master/content/data/fasta
-sed -n '2,$p' E.coli.fasta | wc -c
+cd ../data/fasta
+tail -n +2 E.coli.fasta | tr -d '\n' | wc -c
 
 #4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli
-cd ~/Downloads/TheMulQuaBio-master/content/data/fasta
-sed -n '2,$p' E.coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
+cd ../data/fasta
+tail -n +2 E.coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
 
 #5 Compute the AT/GC ratio for the E. coli genome
-tr -d 'YR' < E.coli.fasta > e.coli.fasta
-sed -n '2,$p' e.coli.fasta | tr -d '\n' | awk '{ 
-    totalAT = gsub(/A|T/,"");
-    totalGC = gsub(/G|C/,"");
-    print totalAT/totalGC;
-}'
-
+cd ../data/fasta
+echo "scale=4; $(tail -n +2 E.coli.fasta | grep -o '[AT]' | wc -l) / $(tail -n +2 E.coli.fasta | grep -o '[GC]' | wc -l)" | bc
