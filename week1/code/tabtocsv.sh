@@ -26,14 +26,20 @@ if [[ "$1" == *.csv ]]; then
   exit 1
 fi
 
-# export csv filename
-output_file="${1%.txt}.csv"
+# Define the target directory for output
+target_dir="../results"
+
+# Extract the base name of the input file (removes the directory part)
+base_name=$(basename "$1" .txt)
+
+# Define the output file name (place it inside the target directory)
+output_file="${target_dir}/${base_name}_comma.csv"
 
 # Replace tabs with commas and write the result to a new CSV file.
 sed 's/[[:space:]]\+/,/g' "$1" > "$output_file"
 
-# remind completed converting
-echo "Done! The file has been converted to '$output_file'."
+# Confirm completion
+echo "Conversion complete. The file has been converted to '$output_file'."
 
 exit
 

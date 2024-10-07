@@ -6,6 +6,9 @@
 # Arguments: 1 -> comma delimited file
 # Date: Oct 2024
 
+# Set the working directory
+cd ../data || { echo "Error: Could not change directory to ../data"; exit 1; }
+
 # Check if there are any .tif files in the directory
 tif_files=(*.tif)
 if [ ${#tif_files[@]} -eq 0 ]; then
@@ -13,11 +16,23 @@ if [ ${#tif_files[@]} -eq 0 ]; then
   exit 1
 fi
 
-# If the file is a *.tif, convert it to a png file.
-for f in *.tif; 
-    do  
-        echo "Converting $f"; 
-        convert "$f"  "$(basename "$f".tif).png"; 
-        echo "successful convert"
-    done
+# Define the target directory for output
+target_dir="../results"
+
+
+
+# Convert the tif file to png and save it in the ../results directory
+ for f in "${tif_files[@]}"; do
+ # Extract the base name without extension
+ base_name=$(basename "$f" .tif)
+
+ # Define the output file path inside the ../results directory
+ output_file="${target_dir}/${base_name}.png"
+ 
+  if convert "$f" "$output_file"; then
+    echo "Successfully converted $f to $output_file"
+  else
+    echo "Failed to convert $f"
+  fi
+done
 
