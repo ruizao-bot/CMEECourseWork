@@ -8,26 +8,24 @@
 
 # Check if correct number of arguments is given
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 input_file.csv"
-    exit 123
-fi
-5677
-
-# Assign input file variable
-input_file=$1
-
-# Check if input file exists
-if [ ! -f "$input_file" ]; then
-    echo "Error: File $input_file not found."
+    echo "Error: $0 need input_file.csv"
     exit 1
 fi
-23876478235
+
+# Check if input file exists
+if [ ! -f "$1" ]; then
+    echo "Error: File $1 not found."
+    exit 1
+fi
+
+
 # Define the output file name
-output_file="${input_file%.csv}_space.txt"
+output_file="${1%.csv}_space.txt"
 
 # Convert CSV to space-separated values and save to the output file
-tr ',' ' ' < "$input_file" > "$output_file"
+tr ',' ' ' < "$1" > "$output_file"
 
 # Confirm completion
 echo "Conversion complete. Space-separated values saved to $output_file"
+exit 0
 
