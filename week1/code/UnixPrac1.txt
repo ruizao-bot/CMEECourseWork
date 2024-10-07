@@ -1,3 +1,15 @@
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: UnixPrac1.txt
+# Description: 
+#1 Count how many lines there are in each file
+#2 Print everything starting from the second line for the E. coli genome
+#3 Count the sequence length of this genome
+#4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli 
+#5 Compute the AT/GC ratio.
+# Saves the output into a .csv file
+
+# Date: Oct 2024
+
 # Find fasta
 cd ../data/fasta
 
