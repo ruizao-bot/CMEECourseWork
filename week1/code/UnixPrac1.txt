@@ -50,7 +50,7 @@ echo "scale=4; $(tail -n +2 E.coli.fasta | grep -o '[AT]' | wc -l) / $(tail -n +
 
 
 ##5 Compute the AT/GC ratio for all files in fasta
-
+cd ../data/fasta
 find . -type f | while read file; do 
 	tail -n +2 "$file" | grep -o '[ATGC]' | awk 'BEGIN{at=0; gc=0} 
 	{if($1 ~ /[AT]/) at++; else if($1 ~ /[GC]/) gc++} 
