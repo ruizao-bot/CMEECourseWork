@@ -5,11 +5,6 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Tachycineata bicolor','Tree swallow',20.2),
         )
 
-# Birds is a tuple of tuples of length three: latin name, common name, mass.
-# write a (short) script to print these on a separate line or output block by
-# species 
-# 
-# A nice example output is:
-# 
-# Latin name: Passerculus sandwichensis Common name: Savannah sparrow Mass: 18.7
-# ... etc.
+# Print the information in birds on a separate line or output block by species 
+for latin_name, common_name, mass in birds:
+    print(f"Latin Name: {latin_name}, Common Name: {common_name}, Mass: {mass} g")
