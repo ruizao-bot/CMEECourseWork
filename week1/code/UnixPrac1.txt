@@ -25,35 +25,11 @@ tail -n +2 E.coli.fasta
 cd ../data/fasta
 tail -n +2 E.coli.fasta | tr -d '\n' | wc -c
 
-##3
-cd ../data/fasta
-find . -type f -exec sh -c 'for file; do count=$(tail -n +2 "$file" | tr -d "\n" | wc -c); echo "$file: $count"; done' _ {} +
-
-
 #4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli
 cd ../data/fasta
 tail -n +2 E.coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
-
-##4 Count the matches of a particular sequence, “ATGC” in the genome of every file in fasta
-cd ../data/fasta
-
-find . -type f -name "*.fasta" | while read file; do 
-    count=$(tr -d '\n' < "$file"| grep -o "ATGC" "$file" | wc -l)
-    echo "$file: $count"
-done
-
 
 #5 Compute the AT/GC ratio for the E. coli genome
 cd ../data/fasta
 echo "scale=4; $(tail -n +2 E.coli.fasta | grep -o '[AT]' | wc -l) / $(tail -n +2 E.coli.fasta | grep -o '[GC]' | wc -l)" | bc
 
-
-
-##5 Compute the AT/GC ratio for all files in fasta
-cd ../data/fasta
-find . -type f | while read file; do 
-	tail -n +2 "$file" | grep -o '[ATGC]' | awk 'BEGIN{at=0; gc=0} 
-	{if($1 ~ /[AT]/) at++; else if($1 ~ /[GC]/) gc++} 
-	END{if(gc == 0) print file ": division by zero"; 
-	else 	printf "%s: scale=4; %.4f\n", file, at/gc}' file="$file"; 
-	done
