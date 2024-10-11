@@ -17,8 +17,8 @@ def foo_2(x, y = 2):
 
     """Compare the value of x and y"""
     if x > y:
-        return f"x>y, the value of {x}"
-    return f"the value of {y}"
+        return f"x>y, the value of x is {x}"
+    return f"x<y, the value of y is {y}"
 
 def foo_3(x, y, z):
 
@@ -39,7 +39,7 @@ def foo_4(x):
     result = 1
     for i in range(1, x + 1):
         result = result * i
-    return result
+    return f"the factorial of x is {result}"
 
 def foo_5(x): 
 
@@ -65,3 +65,6 @@ def main():
     print(foo_4(5))            # Factorial of 5 iteratively
     print(foo_5(5))            # Factorial of 5 recursively
     print(foo_6(5))            # Factorial of 5 using while loop
+
+if __name__ == "__main__":
+    main()
