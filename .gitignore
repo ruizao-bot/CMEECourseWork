@@ -12,6 +12,4 @@ venv/
 *.obj
 bin/
 obj/
-*.csv
-!pushabledata.csv
 *.tmp
