@@ -60,7 +60,7 @@ def find_best_alignment(seq1, seq2):
             my_best_score = z 
 
     return my_best_align, s1, my_best_score
-
+# Save the results to the file
 def save_alignment_to_file(output_file, alignment, s1, score):
     """Save the best alignment and score to a text file."""
     output_path = os.path.join('..', 'results', output_file)
