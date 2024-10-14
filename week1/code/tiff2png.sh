@@ -19,8 +19,6 @@ fi
 # Define the target directory for output
 target_dir="../results"
 
-
-
 # Convert the tif file to png and save it in the ../results directory
  for f in "${tif_files[@]}"; do
  # Extract the base name without extension

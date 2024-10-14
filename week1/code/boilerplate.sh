@@ -5,7 +5,7 @@
 #Arguments: none
 #Date: Oct 2024
 
-
+# print "this is a shell script!"
 echo -e "\nThis is a shell script! \n"
 
 #exit
