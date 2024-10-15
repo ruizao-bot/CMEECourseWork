@@ -1,0 +1,622 @@
+Starting code feedback for Jiayi, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 2.60 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: week2, .git, week1, Feedback
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+/week*/sandbox/
+*~ __pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+*.log
+*.sqlite3
+*.user
+*.suo
+*.exe
+*.obj
+bin/
+obj/
+*.tmp
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+Name: CMEE Coursework Repository
+Author: Chen Jiayi
+E-mail: jc224@ic.ac.uk
+Set-up time: 09/2024
+Introduction: This is a course repository of bootcamp study in Silwood, with the code/scripts inside.
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 2 weekly directories: week1, week2
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: code, results, data
+
+Found the following files: 
+
+Checking for readme file in weekly directory...
+
+README file missing, 1 pt deducted
+
+Current Points = 99
+
+Found following files in results directory: install.png...
+
+Ideally, Results directory should be empty other than, perhaps a .gitkeep. 
+
+ 0.5 pts deducted per results file 
+
+Current Points = 98.5
+
+Found 10 code files: variables.sh, MyExampleScript.sh, ConcatenateTwoFiles.sh, csvtospace.sh, boilerplate.sh, myscript.sh, CountLines.sh, tiff2png.sh, UnixPrac1.txt, tabtocsv.sh
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: variables.sh
+# Description: Illustrates the use of variables 
+# Date: Oct 2024
+
+# Special variables
+
+echo "This script was called with $# parameters"
+echo "The script's name is $0"
+echo "The arguments are $@"
+echo "The first argument is $1"
+echo "The second argument is $2"
+
+# Assigned Variables; Explicit declaration:
+MY_VAR='some string' 
+echo 'the current value of the variable is:' $MY_VAR
+echo
+echo 'Please enter a new string'
+read MY_VAR
+echo
+echo 'the current value of the variable is:' $MY_VAR
+echo
+
+## Assigned Variables; Reading (multiple values) from user input:
+echo 'Enter two numbers separated by space(s)'
+read a b
+echo
+echo 'you entered' $a 'and' $b '; Their sum is:'
+
+## Assigned Variables; Command substitution
+MY_SUM=$(expr $a + $b)
+echo $MY_SUM
+
+**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This script was called with 0 parameters
+The script's name is variables.sh
+The arguments are 
+The first argument is 
+The second argument is 
+the current value of the variable is: some string
+
+Please enter a new string
+
+the current value of the variable is:
+
+Enter two numbers separated by space(s)
+
+you entered and ; Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+expr: syntax error: missing argument after ‘+’
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+
+MSG1="Hello"
+MSG2=$USER
+echo "$MSG1 $MSG2"
+echo "Hello $USER"
+echo
+
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00445s
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: ConcatenateTwoFiles.sh
+# Description: Concentrate the content of  two existing files into one other file
+# Date: Oct 2024
+
+# Define the target directory
+target_dir="../results/"
+output_file="${target_dir}$3"
+
+# check the presence of three files
+if [ "$#" -ne 3 ]; then
+  echo "Error: Three arguments required: <file1> <file2> <outputfile>"
+  echo "Usage: bash script.sh <file1> <file2> <outputfile>"
+  exit 1
+fi
+
+# check if the first file exist
+if [ ! -f "$1" ]; then
+  echo "Error: File '$1' not found."
+  exit 1
+fi
+
+# check if the second file exist
+if [ ! -f "$2" ]; then
+  echo "Error: File '$2' not found."
+  exit 1
+fi
+
+# put the content of file 1 into outputfile 3
+cat "$1" > "$output_file"
+
+# add the content of file 2 into outputfile 3
+cat "$2" >> "$output_file"
+
+# remind merge completed
+echo "Files '$1' and '$2' have been merged into '$output_file'."
+
+
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: Three arguments required: <file1> <file2> <outputfile>
+Usage: bash script.sh <file1> <file2> <outputfile>
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00389s
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: csvtospace.sh
+# Description: converts a comma separated values file to a space separated values file
+# Saves the output into a .csv file
+# Arguments: 1 -> comma delimited file
+# Date: Oct 2024
+
+
+# Check if correct number of arguments is given
+if [ "$#" -ne 1 ]; then
+    echo "Error: $0 need input_file.csv"
+    exit 1
+fi
+
+# Check if input file exists
+if [ ! -f "$1" ]; then
+    echo "Error: File $1 not found."
+    exit 1
+fi
+
+# Define the target directory for output
+target_dir="../results"
+
+# Extract the base name of the input file (removes the directory part)
+base_name=$(basename "$1" .csv)
+
+# Define the output file name (place it inside the target directory)
+output_file="${target_dir}/${base_name}_space.txt"
+
+# Convert CSV to space-separated values and save to the output file
+tr ',' ' ' < "$1" > "$output_file"
+
+# Confirm completion
+echo "Conversion complete. Space-separated values saved to $output_file"
+exit 0
+
+
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: csvtospace.sh need input_file.csv
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00408s
+
+======================================================================
+Inspecting script file boilerplate.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+#Author: jc224@imperial.ac.uk
+#Script: boilerplate.sh
+#Desc: simple boilerplate for shell scripts
+#Arguments: none
+#Date: Oct 2024
+
+# print "this is a shell script!"
+echo -e "\nThis is a shell script! \n"
+
+#exit
+
+**********************************************************************
+
+Testing boilerplate.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+This is a shell script! 
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00415s
+
+======================================================================
+Inspecting script file myscript.sh...
+
+File contents are:
+
+**********************************************************************
+
+**********************************************************************
+
+Testing myscript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00347s
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: CountLines.sh
+# Description: Count the amount of lines in one file
+# Date: Oct 2024
+
+# Check if an input file is provided
+if [ -z "$1" ]; then
+  echo "Error: No input file provided."
+  echo "Usage: bash script.sh <input-file>"
+  exit 1
+fi
+
+# Check if the file exists
+if [ ! -f "$1" ]; then
+  echo "Error: File '$1' not found."
+  exit 1
+fi
+
+# Check if more than one input file is provided
+if [ "$#" -gt 1 ]; then
+  echo "Error: Only the first file will be processed."
+  echo "Usage: bash script.sh <input-file>"
+  exit 1
+fi
+
+# Count lines and export the number
+NumLines=`wc -l < $1`
+echo "The file $1 has $NumLines lines"
+echo
+
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: No input file provided.
+Usage: bash script.sh <input-file>
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00343s
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: csvtospace.sh
+# Description: converts a comma separated values file to a space separated values file
+# Saves the output into a .csv file
+# Arguments: 1 -> comma delimited file
+# Date: Oct 2024
+
+# Set the working directory
+cd ../data || { echo "Error: Could not change directory to ../data"; exit 1; }
+
+# Check if there are any .tif files in the directory
+tif_files=(*.tif)
+if [ ${#tif_files[@]} -eq 0 ]; then
+  echo "No .tif files found in the current directory."
+  exit 1
+fi
+
+# Define the target directory for output
+target_dir="../results"
+
+# Convert the tif file to png and save it in the ../results directory
+ for f in "${tif_files[@]}"; do
+ # Extract the base name without extension
+ base_name=$(basename "$f" .tif)
+
+ # Define the output file path inside the ../results directory
+ output_file="${target_dir}/${base_name}.png"
+ 
+  if convert "$f" "$output_file"; then
+    echo "Successfully converted $f to $output_file"
+  else
+    echo "Failed to convert $f"
+  fi
+done
+
+
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Successfully converted install.tif to ../results/install.png
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.03733s
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+
+**********************************************************************
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: UnixPrac1.txt
+# Description: 
+#1 Count how many lines there are in each file
+#2 Print everything starting from the second line for the E. coli genome
+#3 Count the sequence length of this genome
+#4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli 
+#5 Compute the AT/GC ratio.
+# Saves the output into a .csv file
+
+# Date: Oct 2024
+
+# Find fasta
+cd ../data/fasta
+
+#1 count how many lines there are in each file
+
+wc -l *.fasta
+
+#2 Print everything starting from the second line for the E. coli genome
+
+tail -n +2 E.coli.fasta
+
+#3 Count the sequence length of this genome
+
+tail -n +2 E.coli.fasta | tr -d '\n' | wc -c
+
+#4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli
+
+tail -n +2 E.coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
+
+#5 Compute the AT/GC ratio for the E. coli genome
+
+echo "scale=4; $(tail -n +2 E.coli.fasta | grep -o '[AT]' | wc -l) / $(tail -n +2 E.coli.fasta | grep -o '[GC]' | wc -l)" | bc
+
+
+**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Jiayi Chen jc224@imperial.ac.uk
+# Script: tabtocsv.sh
+# Description: substitute the tabs in the files with commas
+#
+# Saves the output into a .csv file
+# Arguments: 1 -> tab delimited file
+# Date: Oct 2024
+
+# check if there is an input file
+if [ -z "$1" ]; then
+  echo "Error: No input file provided."
+  echo "Usage: bash script.sh <tab-delimited-file>"
+  exit 1
+fi
+
+# check if the file exists
+if [ ! -f "$1" ]; then
+  echo "Error: File '$1' not found."
+  exit 1
+fi
+
+# Check the file extension to prevent overwriting the original CSV file
+if [[ "$1" == *.csv ]]; then
+  echo "Error: The input file is already a CSV file."
+  exit 1
+fi
+
+# Define the target directory for output
+target_dir="../results"
+
+# Extract the base name of the input file (removes the directory part)
+base_name=$(basename "$1" .txt)
+
+# Define the output file name (place it inside the target directory)
+output_file="${target_dir}/${base_name}_comma.csv"
+
+# Replace tabs with commas and write the result to a new CSV file.
+sed 's/[[:space:]]\+/,/g' "$1" > "$output_file"
+
+# Confirm completion
+echo "Conversion complete. The file has been converted to '$output_file'."
+
+exit
+
+
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Error: No input file provided.
+Usage: bash script.sh <tab-delimited-file>
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00328s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 1 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 98.5
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
