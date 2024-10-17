@@ -12,3 +12,26 @@ Set-up time: 10/2024
 To run the scripts, you need:
 - Python 3.x installed on your system.
 - Basic knowledge of Python programming.
+
+#Documents list
+align_seqs.py
+basic_csv.py
+basic_io1.py
+basic_io2.py
+basic_io3.py
+boilerplate.py
+cfexercises1.py
+cfexercises2.py
+control_flow.py
+debugme.py
+dictionary.py
+lc1.py
+lc2.py
+MyExampleScript.py
+oaks.py
+oaks_debugme.py
+scope.py
+sysargv.py
+test_conttol_flow.py
+tuple.py
+using_name.py
