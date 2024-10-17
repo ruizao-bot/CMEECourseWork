@@ -57,7 +57,7 @@ def is_an_oak(name, max_distance=2):
     return levenshtein_distance(name.lower(), 'quercus') <= max_distance
 
 def main(argv):
-    with open('../data/TestOaksData1.csv', 'r') as f, open('../results/JustOaksData.csv', 'w', newline='') as g:
+    with open('../data/TestOaksData.csv', 'r') as f, open('../results/JustOaksData.csv', 'w', newline='') as g:
         taxa = csv.reader(f)
         csvwrite = csv.writer(g)
         csvwrite.writerow(["Genus", "species"])

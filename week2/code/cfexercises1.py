@@ -11,14 +11,14 @@ import sys
 def foo_1(x = 0): # if not specified, x should take value 0.
 
     """Calculate the square root of x"""
-    return f"the square root of x is {x ** 0.5}"
+    return f"the square root of {x} is {x ** 0.5}"
 
 def foo_2(x, y = 2):
 
     """Compare the value of x and y"""
     if x > y:
-        return f"x>y, the value of x is {x}"
-    return f"x<y, the value of y is {y}"
+        return f"{x}>{y}, the value of x is {x}"
+    return f"{x}<{y}, the value of y is {y}"
 
 def foo_3(x, y, z):
 
@@ -31,7 +31,7 @@ def foo_3(x, y, z):
         tmp = z
         z = y
         y = tmp
-    return [x, y, z]
+    return f"the non-desreasing order of {x}, {y}, {z}, is{[x, y, z]}"
 
 def foo_4(x):
      
@@ -39,23 +39,32 @@ def foo_4(x):
     result = 1
     for i in range(1, x + 1):
         result = result * i
-    return f"the factorial of x is {result}"
+    return f"the factorial of {x} is {result}"
 
-def foo_5(x): 
-
+def foo_5(x, original_x=None): 
     """  recursive function that calculates the factorial of x """
+    if original_x is None:
+        original_x = x
+
     if x == 1:
         return 1
-    return x * foo_5(x - 1)
+    else:
+        result = x * foo_5(x - 1, original_x)
+        
+    if x == original_x:
+        print(f"The factorial of {original_x} is {result}")
+        
+    return result
      
 def foo_6(x):
     
     """Calculate the factorial of x in a different way; no if statement involved """
+    original_x = x
     facto = 1
     while x >= 1:
         facto = facto * x
         x = x - 1
-    return facto
+    return f"the factorial of {original_x} is {facto}"
     
 def main():
     # Test cases
