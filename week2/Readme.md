@@ -13,7 +13,7 @@ To run the scripts, you need:
 - Python 3.x installed on your system.
 - Basic knowledge of Python programming.
 
-#Documents list
+#Code list
 align_seqs.py
 This script aligns two DNA sequences such that they are as similar as possible. 
 
