@@ -1,3 +1,11 @@
+"""
+This script demonstrates two methods for creating this dictionary:
+1. Using a loop to build the dictionary step by step.
+2. Using a dictionary comprehension to achieve the same result.
+
+"""
+
+# List of taxa with species and their corresponding orders
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
          ('Peromyscus crinitus', 'Rodentia'),

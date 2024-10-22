@@ -1,3 +1,9 @@
+"""
+This script performs the following tasks:
+1. Uses three separate list comprehensions to create lists for Latin names, common names,
+   and mean body masses, respectively.
+2. Re-implements the same functionality using conventional loops to achieve the same results.
+"""
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

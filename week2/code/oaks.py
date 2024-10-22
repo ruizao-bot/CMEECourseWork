@@ -1,4 +1,10 @@
-## Finds just those taxa that are oak trees from a list of species
+"""
+This module demonstrates how to identify and extract oak species (genus Quercus) from a list of taxa.
+It provides two methods for identifying and manipulating oak species:
+1. Using standard `for` loops.
+2. Using list comprehensions.
+
+"""
 
 taxa = [ 'Quercus robur',
          'Fraxinus excelsior',
@@ -8,6 +14,17 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+
+    """
+    Determines whether the given species name is an oak (genus Quercus).
+
+    Parameters:
+    name (str): The species name to check.
+
+    Returns:
+    bool: True if the species belongs to the genus Quercus, False otherwise.
+    """
+
     return name.lower().startswith('quercus ')
 
 ##Using for loops

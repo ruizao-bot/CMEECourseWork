@@ -1,3 +1,13 @@
+"""
+This script analyzes the average UK rainfall (in mm) for the year 1910 by month.
+
+It performs the following tasks:
+1. Uses a list comprehension to create a list of tuples (month, rainfall)
+   where the rainfall was greater than 100 mm.
+2. Uses a list comprehension to create a list of month names where the rainfall
+   was less than 50 mm.
+3. Re-implements tasks (1) and (2) using conventional loops for comparison.
+"""
 # Average UK Rainfall (mm) for 1910 by month
 rainfall = (('JAN',111.4),
             ('FEB',126.1),

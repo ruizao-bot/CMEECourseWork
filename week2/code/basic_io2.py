@@ -1,3 +1,7 @@
+"""
+This script demonstrates how to save the elements of a list to a file.
+
+"""
 ##############
 # FILE OUTPUT
 ##############

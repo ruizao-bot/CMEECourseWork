@@ -1,3 +1,11 @@
+"""
+This script demonstrates how to read a file line by line.
+
+It includes two examples:
+1. Reading and printing each line from a file.
+2. Reading and printing each line from the file while skipping blank lines.
+
+"""
 #############
 # FILE INPUT
 #############

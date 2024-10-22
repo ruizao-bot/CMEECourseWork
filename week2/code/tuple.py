@@ -1,3 +1,9 @@
+"""
+This script processes a tuple of bird species, where each entry contains the Latin name,
+common name, and average body mass 
+.
+"""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

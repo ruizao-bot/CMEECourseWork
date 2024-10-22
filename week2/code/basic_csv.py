@@ -1,4 +1,14 @@
 import csv
+
+"""
+This script demonstrates how to read from a CSV file and write to another CSV file using the `csv` module.
+
+The script performs the following tasks:
+1. Reads the contents of a CSV file and stores each row as a tuple in a list.
+2. Prints each row and a specific species from the first column.
+3. Reads the CSV file again and writes specific columns to a new CSV file.
+"""
+
 with open('../data/testcsv.csv','r') as f:
 
     csvread = csv.reader(f)

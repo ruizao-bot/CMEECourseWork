@@ -1,3 +1,7 @@
+"""
+This script demonstrates how to access command-line arguments in Python using the `sys` module.
+
+"""
 #!/usr/bin/env python3
 
 import sys

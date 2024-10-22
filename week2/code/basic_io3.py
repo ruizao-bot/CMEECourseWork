@@ -1,3 +1,8 @@
+"""
+This script demonstrates how to store and retrieve complex Python objects 
+(such as dictionaries) using the `pickle` module. 
+
+"""
 #################
 # STORING OBJECTS
 #################
