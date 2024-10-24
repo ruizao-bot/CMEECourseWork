@@ -1,4 +1,7 @@
+# Generate a sequence of numbers from 0 to 100 with an increment of 0.1
 x <- seq(0, 100, by = 0.1)
+
+# Create a response variable 'y' as a linear function of 'x' plus some random noise
 y <- -4. + 0.25 * x +
   rnorm(length(x), mean = 0., sd = 2.5)
 
@@ -23,6 +26,7 @@ p <- p + geom_abline(
   intercept = my_lm$coefficients[1][1],
   slope = my_lm$coefficients[2][1],
   colour = "red")
+  
 # throw some math on the plot
 p <- p + geom_text(aes(x = 60, y = 0,
                        label = "sqrt(alpha) * 2* pi"), 
@@ -30,6 +34,9 @@ p <- p + geom_text(aes(x = 60, y = 0,
                        colour = "blue")
 
 p
+
+
+# Save the plot as a PDF file with specified dimensions
 pdf("../results/MyLinReg.pdf", # Open blank pdf page using a relative path
     9, 8.3)
 print(p)

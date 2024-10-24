@@ -1,9 +1,15 @@
+# Read data from a text file into a dataframe 'a'
 a <- read.table("../data/Results.txt", header = TRUE)
+# Display the first few rows of the dataframe for inspection
 head(a)
 
+# Initialize a new column 'ymin' with zeros for each row in the dataframe
 a$ymin = rep(0,dim(a)[1])
 
+# Start creating a ggplot object with the data from dataframe 'a'
 p = ggplot(a)
+
+# Add the first line range (geom_linerange) to the plot
 p = p + geom_linerange(data = a, aes(
                         x = x,
                         ymin = ymin,
@@ -13,7 +19,8 @@ p = p + geom_linerange(data = a, aes(
                     colour = "#E69F00",
                     alpha = 1/2, show.legend = FALSE)
 
-# Print the second linerange
+
+# Add the second line range to the plot
 p <- p + geom_linerange(data = a, aes(
                           x = x,
                           ymin = ymin,
@@ -42,7 +49,8 @@ p <- p + scale_x_continuous("My x axis",
                             scale_y_continuous("My y axis") + 
                             theme_bw() + 
                             theme(legend.position = "none") 
-p
+
+# Print the final plot to a PDF file
 pdf("../results/MyBars.pdf", # Open blank pdf page using a relative path
     9, 8.3)
 print(p)
