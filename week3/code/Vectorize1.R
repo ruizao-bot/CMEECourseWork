@@ -1,3 +1,4 @@
+# Create a 1000x1000 matrix 'M' filled with random numbers between 0 and 1
 M = matrix(runif(1000000), 1000, 1000)
 SumAllElemtns = function(M){
     Dimensions = dim(M)
