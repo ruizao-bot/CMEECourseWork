@@ -11,10 +11,9 @@ editor_options:
 This repository contains R scripts developed during Week 3 of the
 course. The scripts demonstrate various programming concepts.
 
-## Table of Contents
+## Author
 
-Author: Chen Jiayi E-mail:
-[jc224\@ic.ac.uk](mailto:jc224@ic.ac.uk){.email} Set-up time: 10/2024
+Chen Jiayi E-mail: [jc224\@ic.ac.uk](mailto:jc224@ic.ac.uk){.email}
 
 ## Language
 
