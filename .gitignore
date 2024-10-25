@@ -13,4 +13,3 @@ venv/
 bin/
 obj/
 *.tmp
-/week*/results/*
