@@ -1,3 +1,4 @@
+library(ggplot2)
 # Function to build an ellipse based on specified horizontal and vertical radii
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse
   npoints = 250
