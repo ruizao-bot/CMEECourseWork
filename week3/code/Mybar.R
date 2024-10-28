@@ -1,3 +1,4 @@
+library(ggplot2)
 # Read data from a text file into a dataframe 'a'
 a <- read.table("../data/Results.txt", header = TRUE)
 # Display the first few rows of the dataframe for inspection

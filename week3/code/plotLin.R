@@ -1,3 +1,4 @@
+library(ggplot2)
 # Generate a sequence of numbers from 0 to 100 with an increment of 0.1
 x <- seq(0, 100, by = 0.1)
 
