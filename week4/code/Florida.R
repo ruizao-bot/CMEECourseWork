@@ -17,10 +17,7 @@ correlations_permuted <- numeric(n_shuffles)
 
 # Repeat the calculation n_shuffles times
 for (i in 1:n_shuffles) {
-  # Randomly shuffle temperatures
   shuffled_temps <- sample(ats$Temp)
-  
-  # Calculate the correlation between years and shuffled temperatures
   correlations_permuted[i] <- cor(ats$Year, shuffled_temps)
 }
 
@@ -36,5 +33,5 @@ print(paste("P-value from permutation analysis:", p_value))
 hist(correlations_permuted, breaks = 30, main = "Distribution of Permuted Correlations",
      xlab = "Correlation Coefficient", col = "lightblue", border = "black",
      xlim = c(-1, 1))
-abline(v = correlation_origin, col = "red", lwd = 2)  # Mark original correlation
+abline(v = correlation_origin, col = "red", lwd = 2) 
 legend("topright", legend = "Original Correlation", col = "red", lwd = 2)
