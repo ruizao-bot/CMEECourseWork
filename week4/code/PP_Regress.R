@@ -6,7 +6,12 @@ data = read.csv("../data/EcolArchives-E089-51-D1.csv")
 str(data)
 table(data$Type.of.feeding.interaction)
 table(data$Predator.lifestage)
-
+# Find the unit error and revise it
+data <- data %>%
+  mutate(Prey.mass.grams = case_when(
+    Prey.mass.unit == "g" ~ Prey.mass,      
+    Prey.mass.unit == "mg" ~ Prey.mass / 1000, 
+  ))                     
 # lm model
 lm(data$Predator.mass ~ data$Prey.mass + data$Predator.lifestage + data$Type.of.feeding.interaction)
 
@@ -44,7 +49,7 @@ p <- ggplot(data, aes(x = Prey.mass, y = Predator.mass, colour = Predator.lifest
   coord_fixed(ratio = 0.4)
 
   #Save the picture as PDF
-  ggsave("./results/Predator_Prey_Plot.pdf", plot = p, width = 10, height = 8)
+  ggsave("../results/Predator_Prey_Plot.pdf", plot = p, width = 10, height = 8)
 
 ########################################################################
 # Find unique combinations of Feeding Type and Predator Life Stage
@@ -81,7 +86,7 @@ for (i in 1:nrow(combinations)) {
            Predator.lifestage == predator_stage)
   
   # Check if there are enough data points for regression
-  if (nrow(subset_data) > 1) {
+  if (nrow(subset_data) > 2) {
     # Perform linear regression
     model <- lm(Predator.mass ~ Prey.mass, data = subset_data)
     

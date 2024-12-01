@@ -1,3 +1,4 @@
+install.packages('ggplot2')
 library(ggplot2)
 # Read data from a text file into a dataframe 'a'
 a <- read.table("../data/Results.txt", header = TRUE)

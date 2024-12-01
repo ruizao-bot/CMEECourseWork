@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+
+%% Page size and margins
+\usepackage[a4paper,top=2.1cm,bottom=2.1cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float} % Control the position of figures
+\usepackage[font=small, labelfont=bf]{caption} % Set figure caption style
+\usepackage{setspace} % For line spacing
+\setstretch{1} % Set default line spacing to 1.2
+
+\title{Is Florida getting warmer from 1901 to 2000?}
+\date{} % Remove the date
+
+\setlength{\textfloatsep}{4pt}
+\setlength{\belowcaptionskip}{4pt}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Hypothesis}
+\textbf{H0:} There is no positive correlation between years and annual average temperature from 1901 to 2000 in Florida. \\
+\textbf{H1:} There is a statistically significant positive correlation between years and annual average temperature from 1901 to 2000 in Florida.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../results/plot.png}
+    \caption{\textbf{Correlation Between Years and Temperature.} The red line depict the observed correlation coefficient.}
+    \label{fig:scatterplot}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../data/histogram_plot.png}
+    \caption{\textbf{Permuted Correlation Coefficient Distribution.} The histogram is the distribution of correlation coefficients calculated from 1000 times of permuted pairs. The red line indicates the observed correlation coefficient. }
+    \label{fig:floridaplots}
+    \label{fig:histogram}
+\end{minipage}
+\end{figure}
+
+
+\section*{Method}
+To evaluate whether there was a statistically significant correlation between years and temperature, we performed a permutation analysis. First, the Pearson correlation coefficient between year and temperature was calculated as the observed correlation coefficient. Next, 1000 random shuffles were generated to produce 1000 pairs of year and temperature values, producing 1000 permuted correlation coefficients. The observed correlation coefficient was then compared to the distribution of the permuted correlation coefficients, to compute the p-value as the proportion of permuted correlations that were equal to or greater than the observed value.
+
+\section*{Results}
+The observed correlation coefficient was calculated as 0.53(Figure 1), indicating a statistically moderate positive relationship between year and temperature. None of the 1000 permuted correlations exceeded the observed correlation of 0.53, resulting in a p-value of < 0.001(Figure 2), supporting its statistical significance. This suggests that there is a statistically significant positive correlation between years and temperature from 1901 to 2000, indicating that Florida's annual average temperature shows an increasing trend.
+
+\end{document}
