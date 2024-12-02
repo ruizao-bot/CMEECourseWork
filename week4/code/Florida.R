@@ -39,11 +39,15 @@ p_value <- mean(correlations_permuted >= correlation_origin)
 print(paste("P-value from permutation analysis:", p_value))
 
 # visualization
-png("../results/histogram_plot.png", width = 1000, height = 600, res = 100)
-hist(correlations_permuted, breaks = 30, main = "",
-     xlab = "Correlation Coefficient", col = "lightblue", border = "black",
-     xlim = c(-1, 1))
-abline(v = correlation_origin, col = "red", lwd = 2) 
-legend("topright", legend = "Original Correlation", col = "red", lwd = 2)
-# Close the device to save the file
-dev.off()
+h <- ggplot(as.data.frame(correlations_permuted), aes(x=correlations_permuted)) +
+  geom_histogram(colour="white", fill="blue") +
+  geom_vline(xintercept = correlation_origin, colour = "red", size=1) +
+  labs(x="Correlation Coefficient", y="Frequency") +
+  xlim(-0.4,0.6) +
+  theme_classic() +
+  theme(
+    axis.title.x = element_text(size = 14),
+    axis.title.y = element_text(size = 14) 
+  )
+
+ggsave("../results/histogram_plot.png", plot = h, width = 8, height = 6, dpi = 100)
