@@ -18,15 +18,4 @@ TreeHeight <- function(degrees, distance) {
   
     return (height)
 }
-
-# import data
-data = read.csv( "../data/trees.csv")
-
-#calculate tree height for every row in data
-data$TreeHeight = mapply(TreeHeight, 
-    data$Angle.degrees, data$Distance.m)
-
-#change the colname  
-names(data)[4] <- "TreeHeight.m"
-
-write.csv(data, "../results/TreeHts.csv")
+TreeHeight(37,40)

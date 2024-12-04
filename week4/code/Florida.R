@@ -38,7 +38,7 @@ p_value <- mean(correlations_permuted >= correlation_origin)
 # Print the p-value
 print(paste("P-value from permutation analysis:", p_value))
 
-# visualization
+# Visualization
 h <- ggplot(mapping = aes(x = correlations_permuted)) +
   geom_histogram(colour = "white", fill = "blue") +
   geom_vline(xintercept = correlation_origin, colour = "red", size = 1) +
@@ -50,5 +50,5 @@ h <- ggplot(mapping = aes(x = correlations_permuted)) +
     axis.title.y = element_text(size = 14)
   )
 
-
+# Save the picture
 ggsave("../results/histogram_plot.png", plot = h, width = 8, height = 6, dpi = 100)

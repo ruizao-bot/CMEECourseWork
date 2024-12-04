@@ -44,7 +44,7 @@ p <- ggplot(data, aes(x = Prey.mass, y = Predator.mass, colour = Predator.lifest
     panel.border = element_rect(color = "black", fill = NA, size = 0.5)
   ) +
   guides(colour = guide_legend(nrow = 1)) +
-  scale_x_log10() +  # Log scale for x-axis
+  scale_x_log10() + 
   scale_y_log10() +
   coord_fixed(ratio = 0.4)
 
