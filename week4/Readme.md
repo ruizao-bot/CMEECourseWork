@@ -39,8 +39,9 @@ permuted correlation coefficients.
 **Florida.tex** - A LaTeX document summarizing the Florida temperature
 analysis.
 
-Usage: Compile the .tex file using a pdflatex. Ensure the required plots
-(plot.png and histogram_plot.png) are in the ../results/ directory.
+Usage: 'pdflatex -output-directory=../results Florida.tex' to run the
+script. Run Florida.R first to ensure the required plots (plot.png and
+histogram_plot.png) are in the ../results/ directory.
 
 **PP_Regress.R** - Performs regression analysis on ecological data
 (predator-prey relationships). It visualizes predator-prey mass
