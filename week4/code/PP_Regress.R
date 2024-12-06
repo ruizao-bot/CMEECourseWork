@@ -48,10 +48,6 @@ p <- ggplot(data, aes(x = Prey.mass, y = Predator.mass, colour = Predator.lifest
   scale_y_log10() +
   coord_fixed(ratio = 0.4)
 
-  #Save the picture as PDF
-  ggsave("../results/Predator_Prey_Plot.pdf", plot = p, width = 10, height = 8)
-
-########################################################################
 # Find unique combinations of Feeding Type and Predator Life Stage
 combinations <- data %>%
   distinct(Type.of.feeding.interaction, Predator.lifestage) %>%
@@ -113,3 +109,7 @@ write.csv(regression_results, file = "../results/PP_Regress_Results.csv", row.na
 
 # Print regression results for verification
 print(regression_results)
+
+#Save the picture as PDF
+ggsave("../results/Predator_Prey_Plot.pdf", plot = p, width = 10, height = 8)
+
