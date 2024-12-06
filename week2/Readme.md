@@ -40,6 +40,8 @@ Python 3.12.3
 
 **lc2.py** Use conventional loops and list comprehensions to create lists of month,rainfall tuples where the amount of rain was greater than 100 mm, or less than 50 mm.
 
+**loops.py** Use examples to demonstrates the use of FOR and WHILE loops in Python.
+
 **MyExampleScript.py** An example script, to run python script
 
 **oaks.py** Filter and manipulate a list of taxa to identify oak trees using both for loops and list comprehensions.
