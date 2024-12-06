@@ -20,7 +20,7 @@ R version 4.4.1 (2024-06-14)
 Florida.tex, including hypothesis, data analysis and results of the
 question: Is Florida getting warmer?
 
-### code list
+### Code list
 
 **TreeHeight.R** - Calculates the height of trees using their angle of
 elevation and distance from the base. Key Features.
