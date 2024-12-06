@@ -3,6 +3,7 @@
 *.py[cod]
 *.pyo
 venv/
+*.Rhistory
 .env
 *.log
 *.sqlite3
